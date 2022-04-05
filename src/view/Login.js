@@ -49,8 +49,8 @@ export default function Login() {
                 'email': emailUser,
                 'pass_word': passwordUser,
             };
-            await userApi.userLogin(user);
-            // localStorage.setItem('access_token', 'thutoken');
+            // await userApi.userLogin(user);
+            localStorage.setItem('access_token', 'thutoken');
         } catch (error) {
             console.log(error);
         };
@@ -76,7 +76,7 @@ export default function Login() {
                         <div className="w-2/3 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${background})` }} />
                         <div className="w-1/3 my-4">
                             <span className="text-center text-3xl font-bold uppercase"><p className="p-4">Shiny</p></span>
-                            <div className="mt-6 p-4">
+                            <form className="mt-6 p-4" onSubmit={loginUser}>
                                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
                                     Email
                                 </label>
@@ -96,12 +96,12 @@ export default function Login() {
                                     </div>
                                 </div>
                                 <button
-                                    onClick={loginUser}
+                                    type="submit"
                                     className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                                 >
                                     <span className="inline-block mr-2">Login</span>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
