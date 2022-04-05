@@ -8,10 +8,14 @@ export default function Router() {
     const token = localStorage.getItem('access_token');
     const routerPush = useNavigate();
     useEffect(() => {
-        if (!token) {
+        checkToken();
+    }, []);
+
+    const checkToken = async function (){
+        if(!token){
             routerPush('/login');
         }
-    }, []);
+    }
 
     if(!token){
         return (
@@ -23,8 +27,8 @@ export default function Router() {
 
     return(
         <Routes>
-            <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/home2" element={<Home2 />} />
         </Routes>
     );

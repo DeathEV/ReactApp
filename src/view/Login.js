@@ -26,18 +26,34 @@ export default function Login() {
         setPasswordUser(e.target.value);
     };
 
+    const validate = function () {
+        let isValid = true;
+        if(emailUser === ""){
+            alert("Thieu email");
+            isValid = false;
+        }
+        if(passwordUser === ""){
+            alert("Thieu password");
+            isValid = false;
+        }
+
+        return isValid;
+    };
+
     const loginUser = async function () {
+        if (!validate()) {
+          return;
+        }
         try {
-            // const user = {
-            //     email: emailUser,
-            //     password: passwordUser,
-            // };
-            // const loginJoin = userApi.userLogin(user);
-            localStorage.setItem('access_token', 'thutoken');
-            routerPush('/home');
+            const user = {
+                'email': emailUser,
+                'pass_word': passwordUser,
+            };
+            await userApi.userLogin(user);
+            // localStorage.setItem('access_token', 'thutoken');
         } catch (error) {
             console.log(error);
-        }
+        };
     };
 
     return(
@@ -60,7 +76,7 @@ export default function Login() {
                         <div className="w-2/3 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${background})` }} />
                         <div className="w-1/3 my-4">
                             <span className="text-center text-3xl font-bold uppercase"><p className="p-4">Shiny</p></span>
-                            <form className="p-6" onSubmit={loginUser}>
+                            <div className="mt-6 p-4">
                                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
                                     Email
                                 </label>
@@ -80,12 +96,12 @@ export default function Login() {
                                     </div>
                                 </div>
                                 <button
-                                    type="submit"
+                                    onClick={loginUser}
                                     className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                                 >
                                     <span className="inline-block mr-2">Login</span>
                                 </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
