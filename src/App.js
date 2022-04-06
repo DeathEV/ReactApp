@@ -1,14 +1,8 @@
-import {useNavigate} from 'react-router-dom';
-import Router from "./router";
 import background from "./images/web-image-background.jpg"
+import RouterBase from "./routers/routerBase";
 
 export default function App() {
     const token = localStorage.getItem('access_token');
-    const routerPush = useNavigate();
-    const logOut = function (){
-        localStorage.removeItem('access_token');
-        routerPush("/login");
-    };
     if(token){
         return(
         <>
@@ -19,7 +13,7 @@ export default function App() {
                     <div className="w-1/6 flex justify-around">
                         <p>IMG</p>
                         <p>Admin</p>
-                        <p className="cursor-pointer" onClick={logOut}>Thoat</p>
+                        <p className="cursor-pointer">Thoat</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +22,7 @@ export default function App() {
                     <p>Menu</p>
                 </div>
                 <div className="w-4/5 bg-white">
-                    <Router />
+                    <RouterBase/>
                 </div>
             </div>
         </>
@@ -36,7 +30,7 @@ export default function App() {
     } else {
         return (
             <>
-                <Router />
+                <RouterBase/>
             </>
         );
     }

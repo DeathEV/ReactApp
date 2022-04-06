@@ -1,17 +1,9 @@
-import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useEffect, useState, useCallback} from "react";
 import background from "../images/web-image-background.jpg"
 import userApi from "../api/userApi";
+import ADialog from "../components/ADialog";
 
 export default function Login() {
-    const token = localStorage.getItem('access_token');
-    const routerPush = useNavigate();
-    useEffect(() => {
-        if (token) {
-            routerPush('/home');
-        }
-    }, []);
-
     const imageBackground = {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(${background})`,
     };
@@ -55,7 +47,13 @@ export default function Login() {
             console.log(error);
         };
     };
-
+    const [onOpen, setOpen] = useState(false);
+    const openDialog = function (){
+        setOpen(true)
+    }
+    const onClose = function (){
+        setOpen(false);
+    }
     return(
         <>
             <div className="w-full h-screen bg-no-repeat bg-cover" style={imageBackground}>
@@ -66,7 +64,7 @@ export default function Login() {
                     </div>
                     <div className="flex justify-start mt-4 mx-4">
                         <a href="/login" className="py-2 px-4 mt-3">Website</a>
-                        <button className="h-16 shadow bg-amber-600 hover:bg-amber-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+                        <button onClick={openDialog} className="h-16 shadow bg-amber-600 hover:bg-amber-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
                             Register
                         </button>
                     </div>
@@ -105,6 +103,7 @@ export default function Login() {
                         </div>
                     </div>
                 </div>
+                <ADialog onOpen={onOpen} onClose={onClose} />
             </div>
         </>
     );
