@@ -28,7 +28,7 @@ export default function ALangDropdown(props) {
     return(
         <>
             <button className="h-full max-h-8 w-48 mx-2 relative flex justify-center items-center text-white pt-5 group">
-                <p className="px-4 item-center">{mLang}</p>
+                <p className="px-4 item-center">{t('title.language')}: {mLang}</p>
                 <span className="border-l pt-3 p-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" strokeWidth="2">
