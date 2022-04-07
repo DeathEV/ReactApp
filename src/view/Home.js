@@ -1,13 +1,18 @@
 import background from "../images/web-image-background.jpg";
 import RouterBase from "../routers/routerBase";
-import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import {useTranslation} from "react-i18next";
 
 export default function Home() {
-    const routerPush = useNavigate();
+    const { i18n } = useTranslation('common');
+    const checkLang = localStorage.getItem('language');
+    useEffect(()=>{
+        if(checkLang) {
+            i18n.changeLanguage(JSON.parse(checkLang).lang);
+        }
+    },[])
     const logout = function (){
       localStorage.removeItem('access_token');
-      window.location.reload();
-      routerPush("/login");
     };
     return(
         <>
@@ -19,7 +24,7 @@ export default function Home() {
                         <div className="w-1/6 flex justify-around">
                             <p>IMG</p>
                             <p>Admin</p>
-                            <p className="cursor-pointer" onClick={logout}>Thoat</p>
+                            <a className="cursor-pointer" href="/login" onClick={logout}>Thoat</a>
                         </div>
                     </div>
                 </div>
