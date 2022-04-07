@@ -58,10 +58,9 @@ export default function LoginFooder(props) {
                 'email': emailUser,
                 'pass_word': passwordUser,
             };
-            await userApi.userLogin(user);
-            localStorage.setItem('access_token', 'thutoken');
             routerPush("/home2");
-            window.location.reload();
+            await userApi.userLogin(user);
+            // localStorage.setItem('access_token', 'thutoken'); //BE call
         } catch (error) {
             console.log(error);
         };
@@ -135,18 +134,16 @@ export default function LoginFooder(props) {
                 </div>
             </div>
             <ADialog title={t('text.register')} onOpen={props.openDialog} onClose={props.closeDialog}>
-                <form onSubmit={registerUser}>
-                    <AInput title={t('title.name')} iValue={registerName} iChange={inputResName} placeholder={t('input_text.name')} />
+                <AInput title={t('title.name')} iValue={registerName} iChange={inputResName} placeholder={t('input_text.name')} />
                     <AInput title={t('title.email')} iValue={registerEmail} iChange={inputResEmail} placeholder={t('input_text.email')} />
                     <AInput title={t('title.password')} iValue={registerPassword} iChange={inputResPass} placeholder={t('input_text.password')} />
                     <AInput title={t('title.confirm_password')} iValue={registerConfPassword} iChange={inputResCPass} placeholder={t('input_text.confirm_password')} />
                     <button
-                        type="submit"
+                        onClick={registerUser}
                         className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                     >
                         <span className="inline-block mr-2">{t('text.register')}</span>
                     </button>
-                </form>
             </ADialog>
         </>
     );
