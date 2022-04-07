@@ -69,6 +69,10 @@ export default function LoginFooder(props) {
 
     const validateRegister = function () {
         let isValid = true;
+        if(registerName === ""){
+            alert("Thieu ten");
+            isValid = false;
+        }
         if(registerEmail === ""){
             alert("Thieu email");
             isValid = false;
@@ -102,7 +106,7 @@ export default function LoginFooder(props) {
 
     return(
         <>
-            <div className="w-full flex justify-center mt-14">
+            <div className="w-full flex justify-center mt-8">
                 <div className="flex justify-start w-2/3 h-min-96 overflow-hidden bg-white rounded">
                     <div className="w-2/3 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${background})` }} />
                     <div className="w-1/3 my-4">
