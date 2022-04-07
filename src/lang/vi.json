@@ -9,7 +9,8 @@
         "password": "Mật khẩu",
         "name": "Tên",
         "confirm_password": "Xác nhận mật khẩu",
-        "forget_password": "Quên mật khẩu"
+        "forget_password": "Quên mật khẩu",
+        "language": "Ngôn ngữ"
     },
     "input_text": {
         "email": "Nhập email",

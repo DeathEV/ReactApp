@@ -5,5 +5,10 @@ module.exports = {
   theme: {
     extend: {},
   },
+  variant:{
+    extend: {
+      display: ['group-focus'],
+    }
+  },
   plugins: [],
 }

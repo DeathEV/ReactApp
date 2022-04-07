@@ -135,16 +135,18 @@ export default function LoginFooder(props) {
                 </div>
             </div>
             <ADialog title={t('text.register')} onOpen={props.openDialog} onClose={props.closeDialog}>
-                <AInput title={t('title.name')} iValue={registerName} iChange={inputResName} placeholder={t('input_text.name')} />
-                <AInput title={t('title.email')} iValue={registerEmail} iChange={inputResEmail} placeholder={t('input_text.email')} />
-                <AInput title={t('title.password')} iValue={registerPassword} iChange={inputResPass} placeholder={t('input_text.password')} />
-                <AInput title={t('title.confirm_password')} iValue={registerConfPassword} iChange={inputResCPass} placeholder={t('input_text.confirm_password')} />
-                <button
-                    onClick={registerUser}
-                    className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-                >
-                    <span className="inline-block mr-2">{t('text.register')}</span>
-                </button>
+                <form onSubmit={registerUser}>
+                    <AInput title={t('title.name')} iValue={registerName} iChange={inputResName} placeholder={t('input_text.name')} />
+                    <AInput title={t('title.email')} iValue={registerEmail} iChange={inputResEmail} placeholder={t('input_text.email')} />
+                    <AInput title={t('title.password')} iValue={registerPassword} iChange={inputResPass} placeholder={t('input_text.password')} />
+                    <AInput title={t('title.confirm_password')} iValue={registerConfPassword} iChange={inputResCPass} placeholder={t('input_text.confirm_password')} />
+                    <button
+                        type="submit"
+                        className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                    >
+                        <span className="inline-block mr-2">{t('text.register')}</span>
+                    </button>
+                </form>
             </ADialog>
         </>
     );
