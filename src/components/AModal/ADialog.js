@@ -6,7 +6,7 @@ export default function ADialog(props) {
                 <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                     {/*title*/}
                     <div className="flex justify-between items-center pt-2 pb-3 px-4">
-                        <p className="text-2xl font-bold">{props.title}</p>
+                        <p className="text-2xl font-bold uppercase">{props.title}</p>
                         <div className="modal-close cursor-pointer z-50" onClick={props.onClose}>
                             <svg
                                 className="fill-current text-black"
