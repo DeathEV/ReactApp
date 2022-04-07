@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 export default function ALangDropdown(props) {
     const { t, i18n } = useTranslation('common');
     const checkLang = localStorage.getItem('language');
-    const [mLang, setMlang] = useState(t('title.language'));
+    const [mLang, setMlang] = useState("Tiếng việt");
     useEffect(()=>{
         if(checkLang) {
             setMlang(JSON.parse(checkLang).name)
