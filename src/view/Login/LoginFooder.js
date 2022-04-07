@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
 import background from "../../images/web-image-background.jpg";
 import AInput from "../../components/AForm/AInput";
@@ -7,6 +8,7 @@ import ADialog from "../../components/AModal/ADialog";
 
 export default function LoginFooder(props) {
     const routerPush = useNavigate();
+    const { t } = useTranslation('common');
 
     const [emailUser, setEmailUser] = useState("");
     const [passwordUser, setPasswordUser] = useState("");
@@ -101,15 +103,15 @@ export default function LoginFooder(props) {
                     <div className="w-1/3 my-4">
                         <span className="text-center text-3xl font-bold uppercase"><p className="p-4">Shiny</p></span>
                         <form className="mt-6 p-4" onSubmit={loginUser}>
-                            <AInput title="Email" iValue={emailUser} iChange={inputEmail} placeholder="Email..." />
-                            <AInput title="Password" iValue={passwordUser} iChange={inputPassword} placeholder="Password..." />
+                            <AInput title={t('title.email')} iValue={emailUser} iChange={inputEmail} placeholder={t('input_text.email')} />
+                            <AInput title={t('title.password')} iValue={passwordUser} iChange={inputPassword} placeholder={t('input_text.password')} />
                             <div className="flex justify-end items-center my-2">
                                 <div>
                                     <a
                                         className="block text-sm fontme text-gray-600 hover:underline"
                                         href="/forgot-password"
                                     >
-                                        Forget password
+                                        {t('title.forget_password')}
                                     </a>
                                 </div>
                             </div>
@@ -117,22 +119,22 @@ export default function LoginFooder(props) {
                                 type="submit"
                                 className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                             >
-                                <span className="inline-block mr-2">Login</span>
+                                <span className="inline-block mr-2">{t('text.login')}</span>
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-            <ADialog title="Register" onOpen={props.openDialog} onClose={props.closeDialog}>
-                <AInput title="Email" iValue={registerEmail} iChange={inputResEmail} placeholder="Email..." />
-                    <AInput title="Password" iValue={registerPassword} iChange={inputResPass} placeholder="Password..." />
-                    <AInput title="Confirm Password" iValue={registerConfPassword} iChange={inputResCPass} placeholder="Confirm Password..." />
-                    <button
-                        onClick={registerUser}
-                        className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-                    >
-                        <span className="inline-block mr-2">Register</span>
-                    </button>
+            <ADialog title={t('text.register')} onOpen={props.openDialog} onClose={props.closeDialog}>
+                <AInput title={t('title.email')} iValue={registerEmail} iChange={inputResEmail} placeholder={t('input_text.email')} />
+                <AInput title={t('title.password')} iValue={registerPassword} iChange={inputResPass} placeholder={t('input_text.password')} />
+                <AInput title={t('title.confirm_password')} iValue={registerConfPassword} iChange={inputResCPass} placeholder={t('input_text.confirm_password')} />
+                <button
+                    onClick={registerUser}
+                    className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                >
+                    <span className="inline-block mr-2">{t('text.register')}</span>
+                </button>
             </ADialog>
         </>
     );
