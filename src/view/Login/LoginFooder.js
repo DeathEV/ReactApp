@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import background from "../../images/web-image-background.jpg";
 import AInput from "../../components/AForm/AInput";
-import userApi from "../../api/userApi";
+// import userApi from "../../api/userApi";
 import ADialog from "../../components/AModal/ADialog";
 
 export default function LoginFooder(props) {
@@ -48,10 +48,10 @@ export default function LoginFooder(props) {
           return;
         }
         try {
-            const user = {
-                'email': emailUser,
-                'pass_word': passwordUser,
-            };
+            // const user = {
+            //     'email': emailUser,
+            //     'pass_word': passwordUser,
+            // };
             // await userApi.userLogin(user);
             localStorage.setItem('access_token', 'thutoken');
             routerPush("/home2")
@@ -82,11 +82,11 @@ export default function LoginFooder(props) {
             return;
         };
         try {
-            const user = {
-                'email': registerEmail,
-                'pass_word': registerPassword,
-                'confirm_password': registerConfPassword
-            };
+            // const user = {
+            //     'email': registerEmail,
+            //     'pass_word': registerPassword,
+            //     'confirm_password': registerConfPassword
+            // };
             // await userApi.userRegister(user);
         } catch (error) {
             console.log(error);
