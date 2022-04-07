@@ -8,6 +8,7 @@ export default function ALangDropdown(props) {
     useEffect(()=>{
         if(checkLang) {
             setMlang(JSON.parse(checkLang).name)
+            i18n.changeLanguage(JSON.parse(checkLang).lang);
         }
     },[])
 
