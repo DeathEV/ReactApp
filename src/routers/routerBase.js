@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import { routesCore } from "./routerCore";
-import Login from "../view/Login"
+import Login from "../view/Login/Login"
 
 export default function RouterBase() {
     const token = localStorage.getItem('access_token');

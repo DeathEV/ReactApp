@@ -1,13 +1,13 @@
-export default function ADialog({ onOpen, onClose }) {
-    if(onOpen){
+export default function ADialog(props) {
+    if(props.onOpen){
         return (
             <div className="z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center">
                 <div className="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
                 <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                     {/*title*/}
-                    <div className="flex justify-between items-center pb-3">
-                        <p className="text-2xl font-bold">Title</p>
-                        <div className="modal-close cursor-pointer z-50" onClick={onClose}>
+                    <div className="flex justify-between items-center pt-2 pb-3 px-4">
+                        <p className="text-2xl font-bold">{props.title}</p>
+                        <div className="modal-close cursor-pointer z-50" onClick={props.onClose}>
                             <svg
                                 className="fill-current text-black"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +18,9 @@ export default function ADialog({ onOpen, onClose }) {
                             </svg>
                         </div>
                     </div>
-                    {/*boddy*/}
-                    <slot></slot>
+                    <div className="pb-3 px-4 text-black">
+                        {props.children}
+                    </div>
                 </div>
             </div>
         );

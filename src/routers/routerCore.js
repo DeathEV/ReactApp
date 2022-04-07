@@ -1,4 +1,4 @@
-import Login from "../view/Login"
+import Login from "../view/Login/Login"
 import Home from "../view/Home"
 import Home2 from "../view/Home2"
 
