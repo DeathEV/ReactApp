@@ -1,13 +1,13 @@
 import axiosClient from "./AxiosConfig/axiosClient";
 
 const userApi = {
-    userLogin: (params) => {
+    userLogin: (payload) => {
         const url = '/login';
-        return axiosClient.post(url, { params });
+        return axiosClient.post(url, payload);
     },
-    userRegister: (params) => {
+    userRegister: (payload) => {
         const url = '/user';
-        return axiosClient.post(url, { params });
+        return axiosClient.post(url, payload);
     },
     // userGetAll: () => {
     //     const url = '/users';

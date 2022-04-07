@@ -54,11 +54,11 @@ export default function LoginFooder(props) {
           return;
         }
         try {
-            // const user = {
-            //     'email': emailUser,
-            //     'pass_word': passwordUser,
-            // };
-            // await userApi.userLogin(user);
+            const user = {
+                'email': emailUser,
+                'pass_word': passwordUser,
+            };
+            await userApi.userLogin(user);
             localStorage.setItem('access_token', 'thutoken');
             routerPush("/home2");
             window.location.reload();
