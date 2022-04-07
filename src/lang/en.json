@@ -1,0 +1,13 @@
+{
+    "text": {
+        "login": "Login",
+        "register": "Register",
+        "website": "Website"
+    },
+    "title": {
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm password",
+        "forget_password": "Forget password"
+    }
+}

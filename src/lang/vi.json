@@ -1,0 +1,18 @@
+{
+    "text": {
+        "login": "Đăng nhập",
+        "register": "Đăng ký",
+        "website": "Trang chủ"
+    },
+    "title": {
+        "email": "Email",
+        "password": "Mật khẩu",
+        "confirm_password": "Xác nhận mật khẩu",
+        "forget_password": "Quên mật khẩu"
+    },
+    "input_text": {
+        "email": "Nhập email",
+        "password": "Nhập mật khẩu",
+        "confirm_password": "Nhập lại mật khẩu"
+    }
+}
