@@ -3,8 +3,9 @@ import {useNavigate} from "react-router-dom";
 import background from "../../images/web-image-background.jpg";
 import AInput from "../../components/AForm/AInput";
 import userApi from "../../api/userApi";
+import ADialog from "../../components/AModal/ADialog";
 
-export default function LoginFooder() {
+export default function LoginFooder(props) {
     const routerPush = useNavigate();
 
     const [emailUser, setEmailUser] = useState("");
@@ -16,7 +17,20 @@ export default function LoginFooder() {
         setPasswordUser(e.target.value);
     };
 
-    const validate = function () {
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [registerConfPassword, setRegisterConfPassword] = useState("");
+    const inputResEmail = function (e){
+        setRegisterEmail(e.target.value);
+    };
+    const inputResPass = function (e){
+        setRegisterPassword(e.target.value);
+    };
+    const inputResCPass = function (e){
+        setRegisterConfPassword(e.target.value);
+    };
+
+    const validateLogin = function () {
         let isValid = true;
         if(emailUser === ""){
             alert("Thieu email");
@@ -29,9 +43,8 @@ export default function LoginFooder() {
 
         return isValid;
     };
-
     const loginUser = async function () {
-        if (!validate()) {
+        if (!validateLogin()) {
           return;
         }
         try {
@@ -47,6 +60,39 @@ export default function LoginFooder() {
         };
     };
 
+    const validateRegister = function () {
+        let isValid = true;
+        if(registerEmail === ""){
+            alert("Thieu email");
+            isValid = false;
+        }
+        if(registerPassword === ""){
+            alert("Thieu password");
+            isValid = false;
+        }
+        if(registerConfPassword === ""){
+            alert("Thieu confirm password");
+            isValid = false;
+        }
+
+        return isValid;
+    };
+    const registerUser = async function(){
+        if(!validateRegister()){
+            return;
+        };
+        try {
+            const user = {
+                'email': registerEmail,
+                'pass_word': registerPassword,
+                'confirm_password': registerConfPassword
+            };
+            // await userApi.userRegister(user);
+        } catch (error) {
+            console.log(error);
+        };
+    };
+
     return(
         <>
             <div className="w-full flex justify-center mt-14">
@@ -55,8 +101,8 @@ export default function LoginFooder() {
                     <div className="w-1/3 my-4">
                         <span className="text-center text-3xl font-bold uppercase"><p className="p-4">Shiny</p></span>
                         <form className="mt-6 p-4" onSubmit={loginUser}>
-                            <AInput title="Email" iValue={emailUser} iChange={inputEmail} placeholder="Nhập Email..." />
-                            <AInput title="Password" iValue={passwordUser} iChange={inputPassword} placeholder="Nhập Password..." />
+                            <AInput title="Email" iValue={emailUser} iChange={inputEmail} placeholder="Email..." />
+                            <AInput title="Password" iValue={passwordUser} iChange={inputPassword} placeholder="Password..." />
                             <div className="flex justify-end items-center my-2">
                                 <div>
                                     <a
@@ -77,6 +123,17 @@ export default function LoginFooder() {
                     </div>
                 </div>
             </div>
+            <ADialog title="Register" onOpen={props.openDialog} onClose={props.closeDialog}>
+                <AInput title="Email" iValue={registerEmail} iChange={inputResEmail} placeholder="Email..." />
+                    <AInput title="Password" iValue={registerPassword} iChange={inputResPass} placeholder="Password..." />
+                    <AInput title="Confirm Password" iValue={registerConfPassword} iChange={inputResCPass} placeholder="Confirm Password..." />
+                    <button
+                        onClick={registerUser}
+                        className="mt-4 transition duration-200 bg-amber-600 hover:bg-amber-500 focus:bg-amber-500 focus:shadow-sm focus:ring-4 focus:ring-indigo-400 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                    >
+                        <span className="inline-block mr-2">Register</span>
+                    </button>
+            </ADialog>
         </>
     );
 }

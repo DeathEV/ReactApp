@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LoginHeader from "./LoginHeader";
-import ADialog from "../../components/AModal/ADialog";
 import background from "../../images/web-image-background.jpg";
 import LoginFooder from "./LoginFooder";
 
@@ -20,10 +19,7 @@ export default function Login() {
         <>
             <div className="w-full h-screen bg-no-repeat bg-cover" style={imageBackground}>
                 <LoginHeader openDialog={openDialog} />
-                <LoginFooder />
-                <ADialog title="Thu dialog" onOpen={onOpen} onClose={onClose}>
-                    <p>Test</p>
-                </ADialog>
+                <LoginFooder openDialog={onOpen} closeDialog={onClose} />
             </div>
         </>
     );

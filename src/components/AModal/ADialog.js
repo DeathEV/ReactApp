@@ -18,7 +18,7 @@ export default function ADialog(props) {
                             </svg>
                         </div>
                     </div>
-                    <div className="pb-3 px-4 text-black">
+                    <div className="pb-6 px-4 pt-4 text-black">
                         {props.children}
                     </div>
                 </div>
