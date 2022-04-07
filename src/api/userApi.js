@@ -3,10 +3,10 @@ import axiosClient from "./AxiosConfig/axiosClient";
 const userApi = {
     userLogin: (params) => {
         const url = '/login';
-        return axiosClient.post(url, {params});
+        return axiosClient.post(url, { params });
     },
     userRegister: (params) => {
-        const url = '/register';
+        const url = '/user';
         return axiosClient.post(url, { params });
     },
     // userGetAll: () => {

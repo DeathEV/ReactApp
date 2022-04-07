@@ -7,12 +7,14 @@
     "title": {
         "email": "Email",
         "password": "Mật khẩu",
+        "name": "Tên",
         "confirm_password": "Xác nhận mật khẩu",
         "forget_password": "Quên mật khẩu"
     },
     "input_text": {
         "email": "Nhập email",
         "password": "Nhập mật khẩu",
-        "confirm_password": "Nhập lại mật khẩu"
+        "confirm_password": "Nhập lại mật khẩu",
+        "name": "Nhập tên"
     }
 }

@@ -7,7 +7,14 @@
     "title": {
         "email": "Email",
         "password": "Password",
+        "name": "Name",
         "confirm_password": "Confirm password",
         "forget_password": "Forget password"
+    },
+    "input_text": {
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm password",
+        "name": "Name"
     }
 }
