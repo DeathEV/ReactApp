@@ -5,7 +5,8 @@ import {useNavigate} from "react-router-dom";
 export default function Home() {
     const routerPush = useNavigate();
     const logout = function (){
-      localStorage.removeItem('access_token') ;
+      localStorage.removeItem('access_token');
+      window.location.reload();
       routerPush("/login");
     };
     return(

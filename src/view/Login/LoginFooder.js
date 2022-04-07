@@ -56,7 +56,8 @@ export default function LoginFooder(props) {
             // };
             // await userApi.userLogin(user);
             localStorage.setItem('access_token', 'thutoken');
-            routerPush("/home2")
+            routerPush("/home2");
+            window.location.reload();
         } catch (error) {
             console.log(error);
         };
