@@ -2,7 +2,19 @@
     "text": {
         "login": "Đăng nhập",
         "register": "Đăng ký",
-        "website": "Trang chủ"
+        "website": "Trang chủ",
+        "logout": "Đăng xuất",
+        "welcome": "Chào bạn",
+        "search": "Tìm kiếm phim",
+        "nowmovie": "Phim Đang Khởi Chiếu",
+        "nothing": "Không có gì ở đây :(",
+        "loading": "Đang tải...",
+        "cantfind": "Không tìm thấy phim này",
+        "nonetwork": "Kiểm tra lại mạng",
+        "view": "Xem",
+        "back": "Quay lại",
+        "description": "Mô tả",
+        "movietype": "Thể loại"
     },
     "title": {
         "email": "Email",

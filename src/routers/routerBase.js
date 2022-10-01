@@ -6,15 +6,17 @@ import Login from "../view/Login/Login"
 export default function RouterBase() {
     const token = localStorage.getItem('access_token');
     const routerPush = useNavigate();
-    useEffect(() => {
-        checkToken();
-    }, []);
 
     const checkToken = async function (){
         if(!token){
             routerPush('/login');
         }
     }
+
+    useEffect(() => {
+        checkToken();
+    }, []);
+    
     return (
         <>
             <Routes>

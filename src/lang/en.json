@@ -2,7 +2,19 @@
     "text": {
         "login": "Login",
         "register": "Register",
-        "website": "Website"
+        "website": "Website",
+        "logout": "Logout",
+        "welcome": "Welcome back,",
+        "search": "Search movie",
+        "nowmovie": "Movies",
+        "nothing": "No thing here sorry :(",
+        "loading": "Loading...",
+        "cantfind": "Can't find this movie",
+        "nonetwork": "Check your network",
+        "view": "View",
+        "back": "Back",
+        "description": "Description",
+        "movietype": "Category"
     },
     "title": {
         "email": "Email",

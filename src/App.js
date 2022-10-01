@@ -1,17 +1,15 @@
 import RouterBase from "./routers/routerBase";
-import Home from "./view/Home";
+import Theme from "./view/Theme";
 
 export default function App() {
     const token = localStorage.getItem('access_token');
     if(token){
         return(
-            <Home />
+            <Theme/>
         );
     } else {
         return (
-            <>
-                <RouterBase/>
-            </>
+            <RouterBase/>
         );
     }
 }
